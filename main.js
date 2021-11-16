@@ -1,5 +1,4 @@
 localStorage.setItem('frames per second', 100)
-localStorage.setItem('ms per pwr up', 15000)
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
