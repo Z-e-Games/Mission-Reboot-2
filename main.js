@@ -1,4 +1,5 @@
 localStorage.setItem('frames per second', 100)
+localStorage.setItem('ms per pwr up', 15000)
 
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
@@ -14,7 +15,7 @@ const sixthMessage = document.getElementById('6th-message')
 const seventhMessage = document.getElementById('7th-message')
 
 
-
+let gameEnded = false
 let playAudio = confirm('Would you like to play with sound effects')
 let invinceibleMode = false
 let points = 0
