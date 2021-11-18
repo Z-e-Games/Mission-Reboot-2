@@ -162,11 +162,11 @@ function spawnMonsters() {
         let x 
     let y 
     if (Math.random() < 0.5){
-       x = Math.random() < 0.5 ? 0  : canvas.width 
+       x = Math.random() < 0.5 ? 0 + radius + 1 : canvas.width - radius -1
         y = Math.random() * canvas.height
     }else{
         x = Math.random() * canvas.width
-        y = Math.random() < 0.5 ? 0 : canvas.height
+        y = Math.random() < 0.5 ? 0 + 1 + radius : canvas.height -1 - radius 
     }
 
     let angle = Math.atan2(playerY - y , playerX - x)
@@ -185,6 +185,27 @@ function spawnMonsters() {
 }
 
 function animate(){
+    
+    monsters.forEach(monster => {
+    let firstTime = false
+    const monsterWallDist = Math.hypot(canvas.width - monster.x , canvas.height - monster.y)
+    if(firstTime === true && monster.x > canvas.width- monster.radius || monster.x<monster.radius){
+        monster.velocity.x = -monster.velocity.x
+        firstTime = false
+    }
+    if(firstTime === true && monster.x < canvas.width- monster.radius || monster.x < monster.radius){
+        monster.velocity.x = -monster.velocity.x
+        firstTime = false
+    }
+    if(firstTime === true && monster.y > canvas.height- monster.radius || monster.y<monster.radius ){
+        monster.velocity.y = -monster.velocity.y
+        firstTime = false
+    }
+    if(firstTime === true && monster.y < canvas.height- monster.radius || monster.y<monster.radius ){
+        monster.velocity.y = -monster.velocity.y
+        firstTime = false
+    }
+    });
     
 
     
@@ -238,6 +259,7 @@ function animate(){
                 monsters.splice(index,1)
             }
             else{
+                gameEnded = true
                 cancelAnimationFrame(animationId)
                 if(localStorage.getItem('high score') < time){
                     localStorage.setItem('high score', time)
@@ -265,7 +287,7 @@ function animate(){
                         monsters.splice(index,1)
                         bullets.splice(bulletIndex ,1)
                         if(localStorage.getItem('is signed in') === 'yes'){
-                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getItem('coins per kill')))
+                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + 1)
                         }
                     },0)
                     
@@ -280,8 +302,11 @@ function animate(){
         })
     })
 
-    bullets.forEach((bullet) => {
+    bullets.forEach((bullet,index) => {
         bullet.update()
+        if(bullet.x < 0 || bullet.y < 0 || bullet.x > canvas.width || bullet.y > canvas.height){
+            bullets.splice(index,1)
+        }
     })
 
 
@@ -384,8 +409,11 @@ if(i >=3){
 
 addEventListener('keydown', function(e) {
 	var key = e.key || e.keyCode;
+ 
 	switch (key) {
+        
 		case 'a': case 87:
+            if(gameEnded === false){
             playerX -= 10
             player.x -= 10
             player.draw()
@@ -422,8 +450,11 @@ addEventListener('keydown', function(e) {
                 }
         
             });
+        }
             break
+ 
 		case 'w': case 38:
+            if(gameEnded ===false){
             playerY -= 10
             player.y -= 10
             player.draw()
@@ -460,8 +491,10 @@ addEventListener('keydown', function(e) {
                 }
         
             });
+        }
 			break;
 		case 'd': case 68:
+            if(gameEnded ===false){
             playerX += 10
             player.x += 10
             player.draw()
@@ -498,8 +531,10 @@ addEventListener('keydown', function(e) {
                 }
         
             });
+        }
 			break;
 		case 's': case 83:
+            if(gameEnded === false){
             playerY += 10
             player.y += 10
             player.draw()
@@ -536,6 +571,7 @@ addEventListener('keydown', function(e) {
                 }
         
             });
+        }
             break;
             let hi = 'dummy text'
 
