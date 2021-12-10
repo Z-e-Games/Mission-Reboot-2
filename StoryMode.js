@@ -403,9 +403,7 @@ if(i >=3){
 
         animate()
         spawnMonsters()
-    },10)
 
-}
 
 addEventListener('keydown', function(e) {
 	var key = e.key || e.keyCode;
@@ -576,3 +574,6 @@ addEventListener('keydown', function(e) {
             let hi = 'dummy text'
 
 	}})
+    },10)
+
+}
