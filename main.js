@@ -1,6 +1,4 @@
-localStorage.setItem('frames per second', 100)
-localStorage.setItem('ms per pwr up', 15000)
-
+const gift = document.getElementById('gift')
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 const body = document.querySelector('body')
@@ -14,13 +12,11 @@ const fifthMessage = document.getElementById('5th-message')
 const sixthMessage = document.getElementById('6th-message')
 const seventhMessage = document.getElementById('7th-message')
 
-
+let mode
 let gameEnded = false
-let playAudio = confirm('Would you like to play with sound effects')
 let invinceibleMode = false
 let points = 0
 let time = 0
-let storyMode = confirm('would you like to play with storyline or play endless mode? Click ok to play with storyline.')
 let powerUpMode = false
 let shieldPwrUp = false
 let tripleShootPwrUp = false
@@ -32,11 +28,29 @@ let numberOfMonstersSpawnedInBossMode = 0
 let playerX = innerWidth / 2
 let playerY = innerHeight / 2
 
+
+localStorage.setItem('frames per second', 100)
+localStorage.setItem('ms per pwr up', 15000)
+
 function randomNum(min, max){
     let num = Math.random() * (max - min) + min;
 
     return Math.floor(num);
 };
+
+
+class Gift{
+    constructor(x,y,size){
+        this.x = x
+        this.y = y
+        this.size = size
+    }
+
+    draw(){
+        c.drawImage(gift,this.x,this.y,50,50)
+    }
+}
+
 
 class Boss {
     constructor(x,y,sideLenght,color){
@@ -185,3 +199,4 @@ const boss = new Boss(canvas.width-300,canvas.height/2-150,300,'rgb(24,0,36)')
 const bullets = []
 const specialBullets = []
 const monsters = []
+const gifts = []
