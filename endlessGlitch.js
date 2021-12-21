@@ -1,5 +1,5 @@
-if(storyMode === false){
-
+if(localStorage.getItem('mode') === 'endless mode'){
+    alert('endless')
     let clearHighScore = confirm('Would you like to clear your high score. Your current high score is'+ parseInt(localStorage.getItem('high score')))
 
     if(clearHighScore === true){
