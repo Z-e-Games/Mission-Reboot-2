@@ -403,7 +403,7 @@ if(i >=3){
 
         animate()
         spawnMonsters()
-    },10)
+  
 
 
 addEventListener('keydown', function(e) {
@@ -576,4 +576,4 @@ addEventListener('keydown', function(e) {
 
 	}})
     
-}
+},10)}
