@@ -1,5 +1,9 @@
-if(localStorage.getItem('mode') === 'story mode'){
-alert('endless')
+if(localStorage.getItem('mode') === 'LTM'){
+    function randomNumBetween0and100PerSec(){
+        randomNumMonsterColor = randomNum(0,100)
+        return randomNumMonsterColor
+    }
+    
 
     
     firstMessageFromRealWorld.style.display='block'
@@ -52,8 +56,12 @@ setTimeout(() =>{
                                     
 
                                     let angle = Math.atan2(playerY - y , playerX - x)
-
-                                    const color = `hsl(${Math.random()*360},${Math.random()*100}%,50%)`
+                                    let color
+                                    if(randomNumBetween0and100PerSec() < 50){
+                                        color = 'rgba(0, 87, 7, 1)'
+                                    }else{
+                                        color = 'rgba(87, 0, 0, 1)'
+                                    }
                                 
                                     let velocity = {
                                         x:Math.cos(angle)*75/radius,
@@ -103,7 +111,7 @@ setTimeout(() =>{
                 },7)
             },10)
         },5)
-    },3000)
+    },300000)
     firstMessageFromRealWorld.style.display = 'none'
 
 
@@ -113,47 +121,8 @@ canvas.height = window.innerHeight
 let drawBoss = false
 
 
-class OnesAndZeros{
-    constructor(x,y,color){
-        this.x = x 
-        this.y =y
-        this.color = color 
-    }
-
-    draw(){
-        c.font = "23px Ariel";
-        c.fillStyle = 'green'
-        c.fillText(`${parseInt(Math.random())}`,this.x,this.y);
-    }
-}
-class Boss {
-    constructor(x,y,sideLenght,color){
-        this.x = x 
-        this.y =y
-        this.sideLenght = sideLenght
-        this.color = color 
-    }
-
-    draw(){
-        c.beginPath()
-        c.rect(this.x,this.y,this.sideLenght,this.sideLenght)
-        c.fillStyle = this.color
-        c.fill()
-    }
-}
 
 
-const onesAndZeros = []
-
-
-    setInterval(() => {
-        let oneZeroY = canvas.height
-        let oneZeroX = canvas.width
-        onesAndZeros.push(new OnesAndZeros(oneZeroX,oneZeroY,'green'))
-        onesAndZeros.forEach((oneAndZero) => {
-            oneAndZero.draw()
-        })
-    },500)
 
 function spawnMonsters() {
         setInterval(() => {
@@ -171,8 +140,12 @@ function spawnMonsters() {
 
     let angle = Math.atan2(playerY - y , playerX - x)
 
-
-        const color = `hsl(${Math.random()*360},${Math.random()*100}%,50%)`
+let color
+if(randomNumBetween0and100PerSec() < 50){
+    color = 'rgba(0, 87, 7, 1)'
+}else{
+    color = 'rgba(87, 0, 0, 1)'
+}
     
         let velocity = {
             x:Math.cos(angle)*50/radius,
@@ -185,28 +158,9 @@ function spawnMonsters() {
 }
 
 function animate(){
-    
-    monsters.forEach(monster => {
-    let firstTime = false
-    const monsterWallDist = Math.hypot(canvas.width - monster.x , canvas.height - monster.y)
-    if(firstTime === true && monster.x > canvas.width- monster.radius || monster.x<monster.radius){
-        monster.velocity.x = -monster.velocity.x
-        firstTime = false
-    }
-    if(firstTime === true && monster.x < canvas.width- monster.radius || monster.x < monster.radius){
-        monster.velocity.x = -monster.velocity.x
-        firstTime = false
-    }
-    if(firstTime === true && monster.y > canvas.height- monster.radius || monster.y<monster.radius ){
-        monster.velocity.y = -monster.velocity.y
-        firstTime = false
-    }
-    if(firstTime === true && monster.y < canvas.height- monster.radius || monster.y<monster.radius ){
-        monster.velocity.y = -monster.velocity.y
-        firstTime = false
-    }
-    });
-    
+    gifts.forEach((gift) => {
+        gift.draw()
+    })
 
     
     c.fillStyle ='rgba(0,0,0,0.1)'
@@ -214,9 +168,17 @@ function animate(){
 
     if(drawBoss === true){
         boss.draw()
-        }
+    }
         
-
+    gifts.forEach((gift,index) => {
+        if(player.x >= gift.x && player.y >= gift.y && player.x <= gift.x + 100 && player.y <= gift.y + 100){           
+            localStorage.setItem('money for last gift', randomNum(1,100))
+            c.fillStyle = 'white'
+            c.fillText(`+${localStorage.getItem('money for last gift',)} gold coins`,gift.x,gift.y)
+            gifts.splice(index)
+            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getItem('money for last gift')))
+        }
+    });
 
     c.font = "23px Comic Sans MS";
     c.fillStyle = 'white'
@@ -355,6 +317,7 @@ if(i >=3){
         time += 0.1
     },100)
 
+    setInterval(randomNumBetween0and100PerSec(),1)
 
     addEventListener('mousemove',()=> {
         if(powerUpMode === true){
@@ -388,7 +351,10 @@ if(i >=3){
             shieldPwrUp = true
                 }
             }, 1000);
-
+            
+            setInterval(() => {
+                gifts.push(new Gift(randomNum(0,canvas.width),randomNum(0,canvas.height)))
+            }, 20000);
 
             setInterval(() => {
                 if(Math.round(Math.random()*200) === 200){
@@ -403,8 +369,9 @@ if(i >=3){
 
         animate()
         spawnMonsters()
-  
+    },10)
 
+}
 
 addEventListener('keydown', function(e) {
 	var key = e.key || e.keyCode;
@@ -575,5 +542,3 @@ addEventListener('keydown', function(e) {
             let hi = 'dummy text'
 
 	}})
-    
-},10)}
