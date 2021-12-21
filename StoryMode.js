@@ -1,5 +1,5 @@
-if(storyMode === true){
-
+if(localStorage.getItem('mode') === 'story mode'){
+alert('endless')
 
     
     firstMessageFromRealWorld.style.display='block'
@@ -103,7 +103,7 @@ setTimeout(() =>{
                 },7)
             },10)
         },5)
-    },300000)
+    },3000)
     firstMessageFromRealWorld.style.display = 'none'
 
 
@@ -403,6 +403,7 @@ if(i >=3){
 
         animate()
         spawnMonsters()
+    },10)
 
 
 addEventListener('keydown', function(e) {
@@ -574,6 +575,5 @@ addEventListener('keydown', function(e) {
             let hi = 'dummy text'
 
 	}})
-    },10)
-
+    
 }
