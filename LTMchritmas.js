@@ -208,6 +208,9 @@ function animate(){
     if (shockwavePWRUp === true){
         shockwavePWRUpPlayer.draw()
     }
+    if(localStorage.getItem('has elf skin') === 'yes'){
+        elfSkin.draw()
+    }
     monsters.forEach((monster,index) => {
         monster.update()
 
@@ -226,6 +229,7 @@ function animate(){
                 if(localStorage.getItem('high score') < time){
                     localStorage.setItem('high score', time)
                 }
+                localStorage.setItem('has elf skin', 'no')
             }
         }
 
@@ -383,6 +387,10 @@ addEventListener('keydown', function(e) {
             playerX -= 10
             player.x -= 10
             player.draw()
+            if(localStorage.getItem('has elf skin') === 'yes'){
+                elfSkin = new ElfSkin(player.x-11,player.y-11)
+                elfSkin.draw()
+            }
             if(powerUpMode === true){
                 playerPowerUp.x -= 10
                 playerPowerUp.draw()
@@ -424,6 +432,10 @@ addEventListener('keydown', function(e) {
             playerY -= 10
             player.y -= 10
             player.draw()
+            if(localStorage.getItem('has elf skin') === 'yes'){
+                elfSkin = new ElfSkin(player.x-11,player.y-11)
+                elfSkin.draw()
+            }
             if(powerUpMode === true){
                 playerPowerUp.y -= 10
                 playerPowerUp.draw()
@@ -464,6 +476,10 @@ addEventListener('keydown', function(e) {
             playerX += 10
             player.x += 10
             player.draw()
+            if(localStorage.getItem('has elf skin') === 'yes'){
+                elfSkin = new ElfSkin(player.x-11,player.y-11)
+                elfSkin.draw()
+            }
             if(powerUpMode === true){
                 playerPowerUp.x += 10
                 playerPowerUp.draw()
@@ -504,6 +520,10 @@ addEventListener('keydown', function(e) {
             playerY += 10
             player.y += 10
             player.draw()
+            if(localStorage.getItem('has elf skin') === 'yes'){
+                elfSkin = new ElfSkin(player.x-11,player.y-11)
+                elfSkin.draw()
+            }
             if(powerUpMode === true){
                 playerPowerUp.y += 10
                 playerPowerUp.draw()
