@@ -1,4 +1,5 @@
 const gift = document.getElementById('gift')
+const elfSkinHTML = document.getElementById('elf skin')
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 const body = document.querySelector('body')
@@ -48,6 +49,18 @@ class Gift{
 
     draw(){
         c.drawImage(gift,this.x,this.y,50,50)
+    }
+}
+
+class ElfSkin{
+    constructor(x,y,size){
+        this.x = x
+        this.y = y
+        this.size = size
+    }
+
+    draw(){
+        c.drawImage(elfSkinHTML,this.x,this.y,22,22)
     }
 }
 
@@ -194,7 +207,7 @@ const sheildPlayer = new Player(player.x,player.y,10,'rgb(0, 255, 255)')
 const invinciblePlayer = new Player(player.x,player.y,10,'#FFD700')
 const shockwavePWRUpPlayer = new Player(player.x,player.y,10,'rgb(232, 172, 172)')
 const boss = new Boss(canvas.width-300,canvas.height/2-150,300,'rgb(24,0,36)')
-
+let elfSkin = new ElfSkin(player.x-11,player.y-11)
 
 const bullets = []
 const specialBullets = []
