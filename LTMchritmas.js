@@ -173,6 +173,14 @@ function animate(){
     gifts.forEach((gift,index) => {
         if(player.x >= gift.x && player.y >= gift.y && player.x <= gift.x + 100 && player.y <= gift.y + 100){           
             localStorage.setItem('money for last gift', randomNum(1,100))
+            if(localStorage.getItem('has elf skin') === 'yes'){
+                localStorage.setItem('money for last gift',randomNum(1,200))
+                alert('working')
+                let elfJackpot = randomNum(1,1000000)
+                if(elfJackpot === 1000000){
+                    localStorage.setItem('money for last gift',100000)
+                }
+            }
             c.fillStyle = 'white'
             c.fillText(`+${localStorage.getItem('money for last gift',)} gold coins`,gift.x,gift.y)
             gifts.splice(index)
@@ -345,6 +353,7 @@ if(i >=3){
             powerUpMode = false
         }, parseInt(localStorage.getItem('ms per pwr up')));
         }
+        
     }, 1000);
 
     
