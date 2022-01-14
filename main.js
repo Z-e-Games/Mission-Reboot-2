@@ -31,7 +31,9 @@ let playerY = innerHeight / 2
 
 
 localStorage.setItem('frames per second', 100)
+if(localStorage.getItem('ms per pwr up') === null){
 localStorage.setItem('ms per pwr up', 15000)
+}
 
 function randomNum(min, max){
     let num = Math.random() * (max - min) + min;
