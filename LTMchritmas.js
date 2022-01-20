@@ -131,11 +131,11 @@ function spawnMonsters() {
         let x 
     let y 
     if (Math.random() < 0.5){
-       x = Math.random() < 0.5 ? 0 + radius + 1 : canvas.width - radius -1
+       x = Math.random() < 0.5 ? 0  : canvas.width
         y = Math.random() * canvas.height
     }else{
         x = Math.random() * canvas.width
-        y = Math.random() < 0.5 ? 0 + 1 + radius : canvas.height -1 - radius 
+        y = Math.random() < 0.5 ? 0  : canvas.height 
     }
 
     let angle = Math.atan2(playerY - y , playerX - x)
@@ -148,8 +148,8 @@ if(randomNumBetween0and100PerSec() < 50){
 }
     
         let velocity = {
-            x:Math.cos(angle)*50/radius,
-            y:Math.sin(angle)*50/radius
+            x:Math.cos(angle)*57/radius,
+            y:Math.sin(angle)*57/radius
         }
 
 
