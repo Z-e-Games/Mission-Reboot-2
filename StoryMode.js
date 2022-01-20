@@ -175,8 +175,8 @@ function spawnMonsters() {
         const color = `hsl(${Math.random()*360},${Math.random()*100}%,50%)`
     
         let velocity = {
-            x:Math.cos(angle)*50/radius,
-            y:Math.sin(angle)*50/radius
+            x:Math.cos(angle)*60/radius,
+            y:Math.sin(angle)*60/radius
         }
 
 
