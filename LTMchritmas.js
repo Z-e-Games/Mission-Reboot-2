@@ -77,7 +77,7 @@ setTimeout(() =>{
                                     }
 
                                         setInterval(() => {
-                                            const radius = 7
+                                            const radius = 40
                                             let x = canvas.width
                                             let y = randomNum(canvas.height/2-150,canvas.height/2+150)
                                     
@@ -87,8 +87,8 @@ setTimeout(() =>{
                                             const angle = Math.atan2(playerY - y , playerX - x)
                                         
                                             let velocity = {
-                                                x:Math.cos(angle)*50/radius,
-                                                y:Math.sin(angle)*50/radius
+                                                x:Math.cos(angle)*30/radius,
+                                                y:Math.sin(angle)*30/radius
                                             }
                                     
                                             monsters.push(new Monster(x,y,radius,color,velocity))
