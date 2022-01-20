@@ -69,7 +69,7 @@ setTimeout(() =>{
                                     }
 
                                         setInterval(() => {
-                                            const radius = 7
+                                            const radius = 40
                                             let x = canvas.width
                                             let y = randomNum(canvas.height/2-150,canvas.height/2+150)
                                     
@@ -79,8 +79,8 @@ setTimeout(() =>{
                                             const angle = Math.atan2(playerY - y , playerX - x)
                                         
                                             let velocity = {
-                                                x:Math.cos(angle)*50/radius,
-                                                y:Math.sin(angle)*50/radius
+                                                x:Math.cos(angle)*30/radius,
+                                                y:Math.sin(angle)*30/radius
                                             }
                                     
                                             monsters.push(new Monster(x,y,radius,color,velocity))
@@ -162,11 +162,11 @@ function spawnMonsters() {
         let x 
     let y 
     if (Math.random() < 0.5){
-       x = Math.random() < 0.5 ? 0 + radius + 1 : canvas.width - radius -1
+       x = Math.random() < 0.5 ? 0  : canvas.width 
         y = Math.random() * canvas.height
     }else{
         x = Math.random() * canvas.width
-        y = Math.random() < 0.5 ? 0 + 1 + radius : canvas.height -1 - radius 
+        y = Math.random() < 0.5 ? 0  : canvas.height 
     }
 
     let angle = Math.atan2(playerY - y , playerX - x)
