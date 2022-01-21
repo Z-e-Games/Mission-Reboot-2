@@ -189,8 +189,8 @@ function animate(){
 
     c.font = "23px Comic Sans MS";
     c.fillStyle = 'white'
-    c.fillText(`Time survived: ${parseInt(time)} seconds`, 10, 50);
-    c.fillText(`Score: ${parseInt(score)}`)
+    c.fillText(`Time survived: ${parseInt(time)} seconds`, 10, 50); 
+	c.fillText(`Score: ${parseInt(score)}`,canvas.width/2,50)
 	
 	
     animationId = requestAnimationFrame(animate)
