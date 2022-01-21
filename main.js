@@ -28,6 +28,7 @@ let spawnMonstersID
 let numberOfMonstersSpawnedInBossMode = 0
 let playerX = innerWidth / 2
 let playerY = innerHeight / 2
+let score = 0
 
 
 localStorage.setItem('frames per second', 100)
