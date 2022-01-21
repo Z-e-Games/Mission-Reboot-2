@@ -190,7 +190,9 @@ function animate(){
     c.font = "23px Comic Sans MS";
     c.fillStyle = 'white'
     c.fillText(`Time survived: ${parseInt(time)} seconds`, 10, 50);
-
+    c.fillText(`Score: ${parseInt(score)}`)
+	
+	
     animationId = requestAnimationFrame(animate)
 
 
@@ -226,7 +228,8 @@ function animate(){
         if(dist -monster.radius - player.radius < 0){
             if(shieldPwrUp === true){
                 shieldPwrUp = false 
-                monsters.splice(index,1)
+                monsters.splice(index,1)    
+                score += randomNum(0,5)
             }else if (invinceibleMode === true){
                 monsters.splice(index,1)
             }
@@ -258,7 +261,8 @@ function animate(){
                 }else{
                     setTimeout(() => {
                         monsters.splice(index,1)
-                        bullets.splice(bulletIndex ,1)
+                        bullets.splice(bulletIndex ,1)    
+                	score += randomNum(0,5)
                         if(localStorage.getItem('is signed in') === 'yes'){
                             localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + 1)
                         }
