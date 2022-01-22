@@ -239,6 +239,7 @@ function animate(){
                 if(localStorage.getItem('high score') < time){
                     localStorage.setItem('high score', time)
                 }
+                localStorage.setItem('XP',parseInt(localStorage.getItem('XP')) + score)
                 localStorage.setItem('has elf skin', 'no')
             }
         }
