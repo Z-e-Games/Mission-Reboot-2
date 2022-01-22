@@ -70,7 +70,6 @@ setTimeout(() =>{
                             
                                     monsters.push(new Monster(x,y,radius,color,velocity))
                                     numberOfMonstersSpawnedInBossMode += 1
-                                    c.fillStyle ='rgba(24,0,36,0.5)'
                                     c.fillRect(0,0,canvas.width,canvas.height)
                                     }else{
                                         drawBoss = true
@@ -187,10 +186,6 @@ function animate(){
         }
     });
 
-    c.font = "23px Comic Sans MS";
-    c.fillStyle = 'white'
-    c.fillText(`Time survived: ${parseInt(time)} seconds`, 10, 50); 
-	c.fillText(`Score: ${parseInt(score)}`,canvas.width/2,50)
 	
 	
     animationId = requestAnimationFrame(animate)
@@ -288,7 +283,10 @@ function animate(){
     })
 
 
-
+    c.font = "23px Comic Sans MS";
+    c.fillStyle = 'white'
+    c.fillText(`Time survived: ${parseInt(time)} seconds`, 10, 50); 
+	c.fillText(`Score: ${parseInt(score)}`,canvas.width/2,50)
 }
 
 
