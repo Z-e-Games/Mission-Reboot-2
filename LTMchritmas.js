@@ -70,7 +70,6 @@ setTimeout(() =>{
                             
                                     monsters.push(new Monster(x,y,radius,color,velocity))
                                     numberOfMonstersSpawnedInBossMode += 1
-                                    c.fillRect(0,0,canvas.width,canvas.height)
                                     }else{
                                         drawBoss = true
                                     }
