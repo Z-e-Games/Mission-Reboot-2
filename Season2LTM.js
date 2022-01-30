@@ -108,7 +108,7 @@ function animate(){
             const dist = Math.hypot(bullet.x - monster.x , bullet.y - monster.y)
             if(bullet.x >= boss.x){
                 bullets.splice(bulletIndex,1)
-                gsap.to(boss,{x:boss.x + 500})
+                gsap.to(boss,{x:boss.x + 5.5})
             }
             if(dist -monster.radius - bullet.radius < 0){
                 if (monster.radius - 10 > 10){
