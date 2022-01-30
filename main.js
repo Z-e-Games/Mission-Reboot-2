@@ -223,7 +223,7 @@ const tripleShooterPlayer = new Player(player.x,player.y,10,'green')
 const sheildPlayer = new Player(player.x,player.y,10,'rgb(0, 255, 255)')
 const invinciblePlayer = new Player(player.x,player.y,10,'#FFD700')
 const shockwavePWRUpPlayer = new Player(player.x,player.y,10,'rgb(232, 172, 172)')
-const boss = new Boss(canvas.width - canvas.width/5,0,canvas.height,'rgb(84,232,255)', -0.2)
+const boss = new Boss(canvas.width - canvas.width/5,0,canvas.height,'54E8FF', -0.2)
 let elfSkin = new ElfSkin(player.x-11,player.y-11)
 
 const bullets = []
