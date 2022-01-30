@@ -42,6 +42,7 @@ function animate(){
 
     if(drawBoss === true){
         boss.update()
+        console.log(boss.color)
     }
 
     player.draw()
@@ -106,9 +107,9 @@ function animate(){
 
         bullets.forEach((bullet,bulletIndex) =>{
             const dist = Math.hypot(bullet.x - monster.x , bullet.y - monster.y)
-            if(bullet.x >= boss.x){
+            if(bullet.x >= boss.x && drawBoss === true){
                 bullets.splice(bulletIndex,1)
-                gsap.to(boss,{x:boss.x + 5.5})
+                gsap.to(boss,{x:boss.x + 5})
             }
             if(dist -monster.radius - bullet.radius < 0){
                 if (monster.radius - 10 > 10){
@@ -197,7 +198,7 @@ if(i >=3){
 
     setInterval(() => {
         time += 1
-        if(parseInt(time) === 200){
+        if(parseInt(time) === 20){
             bossLevel = true
             drawBoss = true
         }
@@ -205,7 +206,7 @@ if(i >=3){
         if(parseInt(time) === 500){
         }
 
-        if(parseInt(time) === 200 ){
+        if(parseInt(time) === 20 ){
             setInterval(() => {
                 if(bossLevel === true){
                 const radius = 8
