@@ -29,9 +29,17 @@ let numberOfMonstersSpawnedInBossMode = 0
 let playerX = innerWidth / 2
 let playerY = innerHeight / 2
 let score = 0
+let drawBoss = false
+let guardLevel = false
+let guardsSpawned = 0
+let guardsLeft = 0
 
 
+
+canvas.width = window.innerWidth
+canvas.height = window.innerHeight
 localStorage.setItem('frames per second', 100)
+
 if(localStorage.getItem('ms per pwr up') === null){
 localStorage.setItem('ms per pwr up', 15000)
 }
@@ -41,6 +49,7 @@ function randomNum(min, max){
 
     return Math.floor(num);
 };
+
 
 
 class Gift{
@@ -69,11 +78,12 @@ class ElfSkin{
 
 
 class Boss {
-    constructor(x,y,sideLenght,color){
+    constructor(x,y,sideLenght,color,velocity){
         this.x = x 
         this.y =y
         this.sideLenght = sideLenght
         this.color = color 
+        this.velocity = velocity
     }
 
     draw(){
@@ -81,6 +91,10 @@ class Boss {
         c.rect(this.x,this.y,this.sideLenght,this.sideLenght)
         c.fillStyle = this.color
         c.fill()
+    }
+    update(){
+        this.draw()
+        this.x += this.velocity
     }
 }
 
@@ -209,7 +223,7 @@ const tripleShooterPlayer = new Player(player.x,player.y,10,'green')
 const sheildPlayer = new Player(player.x,player.y,10,'rgb(0, 255, 255)')
 const invinciblePlayer = new Player(player.x,player.y,10,'#FFD700')
 const shockwavePWRUpPlayer = new Player(player.x,player.y,10,'rgb(232, 172, 172)')
-const boss = new Boss(canvas.width-300,canvas.height/2-150,300,'rgb(24,0,36)')
+const boss = new Boss(canvas.width - canvas.width/5,0,canvas.height,'rgb(84,232,255)', -0.2)
 let elfSkin = new ElfSkin(player.x-11,player.y-11)
 
 const bullets = []
