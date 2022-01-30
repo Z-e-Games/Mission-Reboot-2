@@ -197,7 +197,7 @@ if(i >=3){
 
     setInterval(() => {
         time += 1
-        if(parseInt(time) === 2){
+        if(parseInt(time) === 200){
             bossLevel = true
             drawBoss = true
         }
@@ -205,7 +205,7 @@ if(i >=3){
         if(parseInt(time) === 500){
         }
 
-        if(parseInt(time) === 2 ){
+        if(parseInt(time) === 200 ){
             setInterval(() => {
                 if(bossLevel === true){
                 const radius = 8
