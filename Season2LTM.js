@@ -19,7 +19,7 @@ function spawnMonsters() {
             y = Math.random() < 0.5 ? 0  : canvas.height 
         }
 
-    let angle = Math.atan2(playerY - y , playerX - x)
+    let angle = Math.atan2(player.y - y , player.x - x)
 
 let color = `rgb(${randomNum(0,255)},${randomNum(0,255)},${randomNum(0,255)})`
     
@@ -172,7 +172,7 @@ if(i >=3){
 
 
     addEventListener('click',() =>{
-        const angle = Math.atan2(event.clientY-playerY, event.clientX-playerX)
+        const angle = Math.atan2(event.clientY-player.y, event.clientX-player.x)
         
         const velocity = {
             x:Math.cos(angle)*5,
@@ -180,11 +180,11 @@ if(i >=3){
         }
       body.requestFullscreen()
       if(tripleShootPwrUp === false){
-        bullets.push(new Bullet(playerX,playerY,5,'white',velocity))
+        bullets.push(new Bullet(player.x,player.y,5,'white',velocity))
       }else if(tripleShootPwrUp === true){
-        bullets.push(new Bullet(playerX,playerY,5,'rgb(0,255,0)',velocity))
+        bullets.push(new Bullet(player.x,player.y,5,'rgb(0,255,0)',velocity))
       }else if(shieldPwrUp === true){
-          bullets.push(new Bullet(playerX,playerY,0.5,'rgba(232, 172, 172, 1)',velocity))
+          bullets.push(new Bullet(player.x,player.y,0.5,'rgba(232, 172, 172, 1)',velocity))
       }
       if(playAudio === true){
         clickAudio.play()
@@ -214,7 +214,7 @@ if(i >=3){
                 let x = canvas.width
             let y = randomNum(0,canvas.height)
         
-            let angle = Math.atan2(playerY - y , playerX - x)
+            let angle = Math.atan2(player.y - y , player.x - x)
         
             let color = '#66E6FF'
             
@@ -245,7 +245,7 @@ if(i >=3){
             y = Math.random() < 0.5 ? 0  : canvas.height 
         }
 
-    let angle = Math.atan2(playerY - y , playerX - x)
+    let angle = Math.atan2(player.y - y , player.x - x)
 
     let color = '#66E6FF'
     
@@ -262,13 +262,13 @@ if(i >=3){
     addEventListener('mousemove',()=> {
         if(powerUpMode === true){
             
-        const angle = Math.atan2(event.clientY-playerY, event.clientX-playerX)
+        const angle = Math.atan2(event.clientY-player.y, event.clientX-player.x)
         
         const velocity = {
             x:Math.cos(angle)*5,
             y:Math.sin(angle)*5
         }
-        bullets.push(new Bullet(playerX,playerY,5,'rgba(0,0,255,0.5)',velocity))
+        bullets.push(new Bullet(player.x,player.y,5,'rgba(0,0,255,0.5)',velocity))
         }
     })
 
@@ -318,8 +318,7 @@ addEventListener('keydown', function(e) {
         
 		case 'a': case 87:
             if(gameEnded === false){
-            playerX -= 10
-            player.x -= 10
+            gsap.to(player, {x:player.x - 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -351,7 +350,7 @@ addEventListener('keydown', function(e) {
                 
                 const radius = monster.radius
                 
-                let angle = Math.atan2(playerY - monster.y , playerX - monster.x)
+                let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
                     x:Math.cos(angle)*50/radius,
                     y:Math.sin(angle)*50/radius
@@ -363,8 +362,7 @@ addEventListener('keydown', function(e) {
  
 		case 'w': case 38:
             if(gameEnded ===false){
-            playerY -= 10
-            player.y -= 10
+            gsap.to(player, {y:player.y - 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -396,7 +394,7 @@ addEventListener('keydown', function(e) {
                 
                 const radius = monster.radius
                 
-                let angle = Math.atan2(playerY - monster.y , playerX - monster.x)
+                let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
                     x:Math.cos(angle)*50/radius,
                     y:Math.sin(angle)*50/radius
@@ -407,8 +405,7 @@ addEventListener('keydown', function(e) {
 			break;
 		case 'd': case 68:
             if(gameEnded ===false){
-            playerX += 10
-            player.x += 10
+            gsap.to(player, {x:player.x + 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -440,7 +437,7 @@ addEventListener('keydown', function(e) {
                 
                 const radius = monster.radius
                 
-                let angle = Math.atan2(playerY - monster.y , playerX - monster.x)
+                let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
                     x:Math.cos(angle)*50/radius,
                     y:Math.sin(angle)*50/radius
@@ -451,8 +448,7 @@ addEventListener('keydown', function(e) {
 			break;
 		case 's': case 83:
             if(gameEnded === false){
-            playerY += 10
-            player.y += 10
+            gsap.to(player, {y:player.y + 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -484,7 +480,7 @@ addEventListener('keydown', function(e) {
                 
                 const radius = monster.radius
                 
-                let angle = Math.atan2(playerY - monster.y , playerX - monster.x)
+                let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
                     x:Math.cos(angle)*50/radius,
                     y:Math.sin(angle)*50/radius
