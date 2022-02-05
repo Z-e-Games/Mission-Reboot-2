@@ -217,7 +217,7 @@ class Particle {
 
 
 
-const player = new Player(canvas.width/2,canvas.height.2,10,'white')
+const player = new Player(canvas.width/2,canvas.height/2,10,'white')
 const playerPowerUp = new Player(player.x,player.y,10,'blue')
 const tripleShooterPlayer = new Player(player.x,player.y,10,'green')
 const sheildPlayer = new Player(player.x,player.y,10,'rgb(0, 255, 255)')
