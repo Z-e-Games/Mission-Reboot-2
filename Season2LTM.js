@@ -298,7 +298,7 @@ if(i >=3){
             }, 20000);
 
             setInterval(() => {
-                if(Math.round(Math.random()*200) === 200){
+                if(Math.round(Math.random()) === 1){
                     tripleShooterPlayer.x = player.x
                     tripleShooterPlayer.y = player.y
                     tripleShootPwrUp = true
@@ -325,16 +325,17 @@ addEventListener('keydown', function(e) {
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                playerPowerUp.x -= 10
+                gsap.to(playerPowerUp, {x:playerPowerUp.x - 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-              tripleShooterPlayer.x -=10
-              tripleShooterPlayer.draw()
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 50})
+            tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                sheildPlayer.x -= 10
+                
+                gsap.to(sheildPlayer, {x:sheildPlayer.x - 50})
                 sheildPlayer.draw()
             } 
         
@@ -369,16 +370,16 @@ addEventListener('keydown', function(e) {
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                playerPowerUp.y -= 10
+                gsap.to(playerPowerUp, {y:playerPowerUp.y - 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-              tripleShooterPlayer.y -=10
+                gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y - 50})
               tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                sheildPlayer.y -= 10
+                gsap.to(sheildPlayer, {y:sheildPlayer.y - 50})
                 sheildPlayer.draw()
             } 
         
@@ -412,16 +413,16 @@ addEventListener('keydown', function(e) {
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                playerPowerUp.x += 10
+                gsap.to(playerPowerUp, {x:playerPowerUp.x + 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-              tripleShooterPlayer.x +=10
+                gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x + 50})
               tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                sheildPlayer.x += 10
+                gsap.to(sheildPlayer, {x:sheildPlayer.x + 50})
                 sheildPlayer.draw()
             } 
         
@@ -455,18 +456,18 @@ addEventListener('keydown', function(e) {
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                playerPowerUp.y += 10
+                gsap.to(playerPowerUp, {y:playerPowerUp.y + 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-              tripleShooterPlayer.y +=10
+                gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 50})
               tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                sheildPlayer.y += 10
+                gsap.to(sheildPlayer, {y:sheildPlayer.y + 50})
                 sheildPlayer.draw()
-            } 
+            }  
         
             if(invinceibleMode === true){
                 invinciblePlayer.y += 10
