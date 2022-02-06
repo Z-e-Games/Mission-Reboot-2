@@ -24,8 +24,8 @@ function spawnMonsters() {
 let color = `rgb(${randomNum(0,255)},${randomNum(0,255)},${randomNum(0,255)})`
     
         let velocity = {
-            x:Math.cos(angle)*57/radius,
-            y:Math.sin(angle)*57/radius
+            x:Math.cos(angle)*37/radius,
+            y:Math.sin(angle)*37/radius
         }
 
 
