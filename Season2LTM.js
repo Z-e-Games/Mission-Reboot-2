@@ -174,8 +174,8 @@ if(i >=3){
         const angle = Math.atan2(event.clientY-player.y, event.clientX-player.x)
         
         const velocity = {
-            x:Math.cos(angle)*5,
-            y:Math.sin(angle)*5
+            x:Math.cos(angle)*2.5,
+            y:Math.sin(angle)*2.5
         }
       body.requestFullscreen()
       if(tripleShootPwrUp === false){
@@ -317,10 +317,10 @@ addEventListener('keydown', function(e) {
         
 		case 'a': case 87:
             if(gameEnded === false){
-            gsap.to(player, {x:player.x - 100})
-            gsap.to(playerPowerUp, {x:playerPowerUp.x - 100})
-            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 100})
-            gsap.to(sheildPlayer, {x:sheildPlayer.x - 100})
+            gsap.to(player, {x:player.x - 30})
+            gsap.to(playerPowerUp, {x:playerPowerUp.x - 30})
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 30})
+            gsap.to(sheildPlayer, {x:sheildPlayer.x - 30})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -362,10 +362,10 @@ addEventListener('keydown', function(e) {
  
 		case 'w': case 38:
             if(gameEnded ===false){
-            gsap.to(player, {y:player.y - 50})
-            gsap.to(playerPowerUp, {y:playerPowerUp.y - 50})
-            gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y - 50})
-            gsap.to(sheildPlayer, {y:sheildPlayer.y - 50})
+            gsap.to(player, {y:player.y - 30})
+            gsap.to(playerPowerUp, {y:playerPowerUp.y - 30})
+            gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y - 30})
+            gsap.to(sheildPlayer, {y:sheildPlayer.y - 30})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -405,10 +405,10 @@ addEventListener('keydown', function(e) {
 			break;
 		case 'd': case 68:
             if(gameEnded ===false){
-            gsap.to(player, {x:player.x + 50})
-            gsap.to(playerPowerUp, {x:playerPowerUp.x + 50})
-            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x + 50})
-            gsap.to(sheildPlayer, {x:sheildPlayer.x + 50})
+            gsap.to(player, {x:player.x + 30})
+            gsap.to(playerPowerUp, {x:playerPowerUp.x + 30})
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x + 30})
+            gsap.to(sheildPlayer, {x:sheildPlayer.x + 30})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -449,9 +449,9 @@ addEventListener('keydown', function(e) {
 		case 's': case 83:
             if(gameEnded === false){
             gsap.to(player, {y:player.y + 50})
-            gsap.to(playerPowerUp, {y:playerPowerUp.y + 50})
-            gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 50})
-            gsap.to(sheildPlayer, {y:sheildPlayer.y + 50})
+            gsap.to(playerPowerUp, {y:playerPowerUp.y + 30})
+            gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 30})
+            gsap.to(sheildPlayer, {y:sheildPlayer.y + 30})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
@@ -482,8 +482,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*50/radius,
-                    y:Math.sin(angle)*50/radius
+                    x:Math.cos(angle)*37/radius,
+                    y:Math.sin(angle)*37/radius
                 }
         
             });
