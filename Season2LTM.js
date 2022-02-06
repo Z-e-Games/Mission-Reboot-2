@@ -42,7 +42,6 @@ function animate(){
 
     if(drawBoss === true){
         boss.update()
-        console.log(boss.color)
     }
 
     player.draw()
@@ -129,7 +128,7 @@ function animate(){
                         bullets.splice(bulletIndex ,1)    
                 	score += randomNum(0,5)
                         if(localStorage.getItem('is signed in') === 'yes'){
-                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + 1)
+                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getitem()))
                         }
                     },0)
                     
@@ -318,10 +317,10 @@ addEventListener('keydown', function(e) {
         
 		case 'a': case 87:
             if(gameEnded === false){
-            gsap.to(player, {x:player.x - 50})
-            gsap.to(playerPowerUp, {x:playerPowerUp.x - 50})
-            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 50})
-            gsap.to(sheildPlayer, {x:sheildPlayer.x - 50})
+            gsap.to(player, {x:player.x - 100})
+            gsap.to(playerPowerUp, {x:playerPowerUp.x - 100})
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 100})
+            gsap.to(sheildPlayer, {x:sheildPlayer.x - 100})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
