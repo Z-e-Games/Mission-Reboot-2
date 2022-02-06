@@ -352,8 +352,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*50/radius,
-                    y:Math.sin(angle)*50/radius
+                    x:Math.cos(angle)*57/radius,
+                    y:Math.sin(angle)*57/radius
                 }
         
             });
@@ -396,8 +396,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*50/radius,
-                    y:Math.sin(angle)*50/radius
+                    x:Math.cos(angle)*57/radius,
+                    y:Math.sin(angle)*57/radius
                 }
         
             });
@@ -439,8 +439,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*50/radius,
-                    y:Math.sin(angle)*50/radius
+                    x:Math.cos(angle)*57/radius,
+                    y:Math.sin(angle)*57/radius
                 }
         
             });
@@ -482,8 +482,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*50/radius,
-                    y:Math.sin(angle)*50/radius
+                    x:Math.cos(angle)*57/radius,
+                    y:Math.sin(angle)*57/radius
                 }
         
             });
