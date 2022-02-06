@@ -448,7 +448,7 @@ addEventListener('keydown', function(e) {
 			break;
 		case 's': case 83:
             if(gameEnded === false){
-            gsap.to(player, {y:player.y + 50})
+            gsap.to(player, {y:player.y + 30})
             gsap.to(playerPowerUp, {y:playerPowerUp.y + 30})
             gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 30})
             gsap.to(sheildPlayer, {y:sheildPlayer.y + 30})
