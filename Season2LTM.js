@@ -317,10 +317,10 @@ addEventListener('keydown', function(e) {
         
 		case 'a': case 87:
             if(gameEnded === false){
-            gsap.to(player, {x:player.x - 100})
-            gsap.to(playerPowerUp, {x:playerPowerUp.x - 100})
-            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 100})
-            gsap.to(sheildPlayer, {x:sheildPlayer.x - 100})
+            gsap.to(player, {x:player.x - 50})
+            gsap.to(playerPowerUp, {x:playerPowerUp.x - 50})
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 50})
+            gsap.to(sheildPlayer, {x:sheildPlayer.x - 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
