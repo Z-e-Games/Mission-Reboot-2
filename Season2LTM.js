@@ -298,10 +298,10 @@ if(i >=3){
             }, 20000);
 
             setInterval(() => {
-                if(Math.round(Math.random()) === 1){
+                if(Math.round(Math.random()) === 200){
+                    tripleShootPwrUp = true
                     tripleShooterPlayer.x = player.x
                     tripleShooterPlayer.y = player.y
-                    tripleShootPwrUp = true
                 setTimeout(() => {
                     tripleShootPwrUp = false
                 }, parseInt(localStorage.getItem('ms per pwr up')));
@@ -319,23 +319,23 @@ addEventListener('keydown', function(e) {
 		case 'a': case 87:
             if(gameEnded === false){
             gsap.to(player, {x:player.x - 50})
+            gsap.to(playerPowerUp, {x:playerPowerUp.x - 50})
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 50})
+            gsap.to(sheildPlayer, {x:sheildPlayer.x - 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                gsap.to(playerPowerUp, {x:playerPowerUp.x - 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 50})
             tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
                 
-                gsap.to(sheildPlayer, {x:sheildPlayer.x - 50})
                 sheildPlayer.draw()
             } 
         
@@ -364,22 +364,22 @@ addEventListener('keydown', function(e) {
 		case 'w': case 38:
             if(gameEnded ===false){
             gsap.to(player, {y:player.y - 50})
+            gsap.to(playerPowerUp, {y:playerPowerUp.y - 50})
+            gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y - 50})
+            gsap.to(sheildPlayer, {y:sheildPlayer.y - 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                gsap.to(playerPowerUp, {y:playerPowerUp.y - 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-                gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y - 50})
               tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                gsap.to(sheildPlayer, {y:sheildPlayer.y - 50})
                 sheildPlayer.draw()
             } 
         
@@ -407,22 +407,22 @@ addEventListener('keydown', function(e) {
 		case 'd': case 68:
             if(gameEnded ===false){
             gsap.to(player, {x:player.x + 50})
+            gsap.to(playerPowerUp, {x:playerPowerUp.x + 50})
+            gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x + 50})
+            gsap.to(sheildPlayer, {x:sheildPlayer.x + 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                gsap.to(playerPowerUp, {x:playerPowerUp.x + 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-                gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x + 50})
               tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                gsap.to(sheildPlayer, {x:sheildPlayer.x + 50})
                 sheildPlayer.draw()
             } 
         
@@ -450,22 +450,22 @@ addEventListener('keydown', function(e) {
 		case 's': case 83:
             if(gameEnded === false){
             gsap.to(player, {y:player.y + 50})
+            gsap.to(playerPowerUp, {y:playerPowerUp.y + 50})
+            gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 50})
+            gsap.to(sheildPlayer, {y:sheildPlayer.y + 50})
             player.draw()
             if(localStorage.getItem('has elf skin') === 'yes'){
                 elfSkin = new ElfSkin(player.x-11,player.y-11)
                 elfSkin.draw()
             }
             if(powerUpMode === true){
-                gsap.to(playerPowerUp, {y:playerPowerUp.y + 50})
                 playerPowerUp.draw()
             }
             if(tripleShootPwrUp === true){
-                gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 50})
-              tripleShooterPlayer.draw()
+                tripleShooterPlayer.draw()
             }
         
             if(shieldPwrUp === true){
-                gsap.to(sheildPlayer, {y:sheildPlayer.y + 50})
                 sheildPlayer.draw()
             }  
         
