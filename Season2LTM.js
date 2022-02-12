@@ -36,7 +36,7 @@ let color = `rgb(${randomNum(0,255)},${randomNum(0,255)},${randomNum(0,255)})`
 function animate(){
      animationId = requestAnimationFrame(animate)
     
-    
+
      c.fillStyle ='rgba(0,0,0,0.1)'
      c.fillRect(0,0,canvas.width,canvas.height)
 
@@ -65,8 +65,8 @@ function animate(){
     if (shockwavePWRUp === true){
         shockwavePWRUpPlayer.draw()
     }
-    if(localStorage.getItem('has elf skin') === 'yes'){
-        elfSkin.draw()
+    if(localStorage.getItem('has season skin') === 'yes'){
+        seasonSkin.draw()
     }
     if(boss.x >= canvas.width){
         boss.sideLenght = 0
@@ -79,8 +79,18 @@ function animate(){
 
     }
     monsters.forEach((monster,index) => {
-        monster.update()
-
+        monster.update()    
+        if(localStorage.getItem('has season skin') === 'no'){
+            const radius = monster.radius
+                
+            let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
+            monster.velocity = {
+                x:Math.cos(angle)*50/radius,
+                y:Math.sin(angle)*50/radius
+            }
+  
+    }
+        
         const dist = Math.hypot(player.x - monster.x , player.y - monster.y)
 
         if(dist -monster.radius - player.radius < 0){
@@ -98,7 +108,7 @@ function animate(){
                     localStorage.setItem('high score', time)
                 }
                 localStorage.setItem('XP',parseInt(localStorage.getItem('XP')) + score)
-                localStorage.setItem('has elf skin', 'no')
+                localStorage.setItem('has season skin', 'no')
             }
         }
 
@@ -321,10 +331,11 @@ addEventListener('keydown', function(e) {
             gsap.to(playerPowerUp, {x:playerPowerUp.x - 50})
             gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x - 50})
             gsap.to(sheildPlayer, {x:sheildPlayer.x - 50})
+            gsap.to(seasonSkin, {x:seasonSkin.x - 50})
             player.draw()
-            if(localStorage.getItem('has elf skin') === 'yes'){
-                elfSkin = new ElfSkin(player.x-11,player.y-11)
-                elfSkin.draw()
+            if(localStorage.getItem('has season skin') === 'yes'){
+    //            seasonSkin = new SeasonSkin(player.x-11,player.y-11)
+                seasonSkin.draw()
             }
             if(powerUpMode === true){
                 playerPowerUp.draw()
@@ -352,8 +363,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*57/radius,
-                    y:Math.sin(angle)*57/radius
+                    x:Math.cos(angle)*50/radius,
+                    y:Math.sin(angle)*50/radius
                 }
         
             });
@@ -366,10 +377,11 @@ addEventListener('keydown', function(e) {
             gsap.to(playerPowerUp, {y:playerPowerUp.y - 50})
             gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y - 50})
             gsap.to(sheildPlayer, {y:sheildPlayer.y - 50})
+            gsap.to(seasonSkin, {y:seasonSkin.y - 50})
             player.draw()
-            if(localStorage.getItem('has elf skin') === 'yes'){
-                elfSkin = new ElfSkin(player.x-11,player.y-11)
-                elfSkin.draw()
+            if(localStorage.getItem('has season skin') === 'yes'){
+              //  seasonSkin = new SeasonSkin(player.x-11,player.y-11)
+                seasonSkin.draw()
             }
             if(powerUpMode === true){
                 playerPowerUp.draw()
@@ -396,8 +408,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*57/radius,
-                    y:Math.sin(angle)*57/radius
+                    x:Math.cos(angle)*50/radius,
+                    y:Math.sin(angle)*50/radius
                 }
         
             });
@@ -409,10 +421,11 @@ addEventListener('keydown', function(e) {
             gsap.to(playerPowerUp, {x:playerPowerUp.x + 50})
             gsap.to(tripleShooterPlayer, {x:tripleShooterPlayer.x + 50})
             gsap.to(sheildPlayer, {x:sheildPlayer.x + 50})
+            gsap.to(seasonSkin, {x:seasonSkin.x + 50})
             player.draw()
-            if(localStorage.getItem('has elf skin') === 'yes'){
-                elfSkin = new ElfSkin(player.x-11,player.y-11)
-                elfSkin.draw()
+            if(localStorage.getItem('has season skin') === 'yes'){
+             //   seasonSkin = new SeasonSkin(player.x-11,player.y-11)
+                seasonSkin.draw()
             }
             if(powerUpMode === true){
                 playerPowerUp.draw()
@@ -439,8 +452,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*57/radius,
-                    y:Math.sin(angle)*57/radius
+                    x:Math.cos(angle)*50/radius,
+                    y:Math.sin(angle)*50/radius
                 }
         
             });
@@ -452,10 +465,10 @@ addEventListener('keydown', function(e) {
             gsap.to(playerPowerUp, {y:playerPowerUp.y + 50})
             gsap.to(tripleShooterPlayer, {y:tripleShooterPlayer.y + 50})
             gsap.to(sheildPlayer, {y:sheildPlayer.y + 50})
+            gsap.to(seasonSkin, {y:seasonSkin.y + 50})
             player.draw()
-            if(localStorage.getItem('has elf skin') === 'yes'){
-                elfSkin = new ElfSkin(player.x-11,player.y-11)
-                elfSkin.draw()
+            if(localStorage.getItem('has season skin') === 'yes'){
+                seasonSkin.draw()
             }
             if(powerUpMode === true){
                 playerPowerUp.draw()
@@ -482,8 +495,8 @@ addEventListener('keydown', function(e) {
                 
                 let angle = Math.atan2(player.y - monster.y , player.x - monster.x)
                 monster.velocity = {
-                    x:Math.cos(angle)*57/radius,
-                    y:Math.sin(angle)*57/radius
+                    x:Math.cos(angle)*50/radius,
+                    y:Math.sin(angle)*50/radius
                 }
         
             });
