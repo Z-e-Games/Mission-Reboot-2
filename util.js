@@ -1,5 +1,5 @@
 const gift = document.getElementById('gift')
-const elfSkinHTML = document.getElementById('elf skin')
+const seasonSkinHTML = document.getElementById('elf skin')
 const canvas = document.querySelector('canvas')
 const c = canvas.getContext('2d')
 const body = document.querySelector('body')
@@ -64,7 +64,7 @@ class Gift{
     }
 }
 
-class ElfSkin{
+class SeasonSkin{
     constructor(x,y,size){
         this.x = x
         this.y = y
@@ -72,7 +72,7 @@ class ElfSkin{
     }
 
     draw(){
-        c.drawImage(elfSkinHTML,this.x,this.y,22,22)
+        c.drawImage(seasonSkinHTML,this.x,this.y,22,22)
     }
 }
 
@@ -164,6 +164,8 @@ class Bullet {
 
     update (){
         this.draw()
+        gsap.to(this.x, {x:this.x - this.velocity.x})
+        gsap.to(this.y, {y:this.y - this.velocity.y})
         this.x+=this.velocity.x 
         this.y+=this.velocity.y
     }
@@ -224,7 +226,7 @@ const sheildPlayer = new Player(player.x,player.y,10,'rgb(0, 255, 255)')
 const invinciblePlayer = new Player(player.x,player.y,10,'#FFD700')
 const shockwavePWRUpPlayer = new Player(player.x,player.y,10,'rgb(232, 172, 172)')
 const boss = new Boss(canvas.width - canvas.width/5,0,canvas.height,'rgb(84,232,255)', -0.2)
-let elfSkin = new ElfSkin(player.x-11,player.y-11)
+let seasonSkin = new SeasonSkin(player.x-11,player.y-11)
 
 const bullets = []
 const specialBullets = []
