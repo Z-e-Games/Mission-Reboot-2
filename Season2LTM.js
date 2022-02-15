@@ -138,7 +138,7 @@ function animate(){
                         bullets.splice(bulletIndex ,1)    
                 	score += randomNum(0,5)
                         if(localStorage.getItem('is signed in') === 'yes'){
-                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getitem()))
+                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getitem('coins per kill')))
                         }
                     },0)
                     
