@@ -138,7 +138,8 @@ function animate(){
                         bullets.splice(bulletIndex ,1)    
                 	score += randomNum(0,5)
                         if(localStorage.getItem('is signed in') === 'yes'){
-                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getitem('coins per kill')))
+                            localStorage.setItem('gold coins',parseInt(localStorage.getItem('gold coins')) + parseInt(localStorage.getItem('coins per kill')))
+                            console.warn(parseInt(localStorage.getItem('gold coins')))
                         }
                     },0)
                     
@@ -268,21 +269,40 @@ if(i >=3){
     }
     },2000)
 
-    addEventListener('mousemove',()=> {
+    addEventListener('mousedown',()=> {
         if(powerUpMode === true){
-            
-        const angle = Math.atan2(event.clientY-player.y, event.clientX-player.x)
+         shootingIntervalPwrUp = setInterval(() => {
+            if(powerUpMode === true){
+            const angle = Math.atan2(yPos-player.y, xPos-player.x)
         
-        const velocity = {
-            x:Math.cos(angle)*5,
-            y:Math.sin(angle)*5
+            const velocity = {
+                x:Math.cos(angle)*5,
+                y:Math.sin(angle)*5
+            }
+            bullets.push(new Bullet(player.x,player.y,5,'rgba(0,0,255,0.5)',velocity))
         }
-        bullets.push(new Bullet(player.x,player.y,5,'rgba(0,0,255,0.5)',velocity))
-        }
+        },100)
+    }else{
+        shootingIntervalPwrUp = setInterval(() => {
+           
+            const angle = Math.atan2(yPos-player.y, xPos-player.x)
+        
+            const velocity = {
+                x:Math.cos(angle)*5,
+                y:Math.sin(angle)*5
+            }
+            bullets.push(new Bullet(player.x,player.y,5,'white',velocity))
+
+        },500)
+    }
+    })
+    
+    addEventListener('mouseup',() => {
+        clearInterval(shootingIntervalPwrUp)
     })
 
     setInterval(() => {
-        if(Math.round(Math.random()*200) === 200){
+        if(Math.round(Math.random()*2) === 2){
             playerPowerUp.x = player.x
             playerPowerUp.y = player.y
             powerUpMode = true
