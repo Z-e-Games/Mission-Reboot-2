@@ -302,7 +302,7 @@ if(i >=3){
     })
 
     setInterval(() => {
-        if(Math.round(Math.random()*2) === 2){
+        if(Math.round(Math.random()*2) === 250){
             playerPowerUp.x = player.x
             playerPowerUp.y = player.y
             powerUpMode = true
