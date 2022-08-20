@@ -302,7 +302,7 @@ if(i >=3){
     })
 
     setInterval(() => {
-        if(Math.round(Math.random()*2) === 250){
+        if(Math.round(Math.random()*250) === 250){
             playerPowerUp.x = player.x
             playerPowerUp.y = player.y
             powerUpMode = true
@@ -327,7 +327,7 @@ if(i >=3){
             }, 20000);
 
             setInterval(() => {
-                if(Math.round(Math.random()) === 200){
+                if(Math.round(Math.random()*200) === 200){
                     tripleShootPwrUp = true
                     tripleShooterPlayer.x = player.x
                     tripleShooterPlayer.y = player.y
